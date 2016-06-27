@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration Form</title>
+</head>
+<body>
+<div id="container">
+	<div class="registration">
+	<h1>Registration</h1>
+		<form action="{% url 'validation' %}" method='post'>
+		{% csrf_token %}
+
+			<label>User Name: <input type="text" name="alias"></label>
+			{% if messages %}
+				{% for message in messages %}
+					{% if message.extra_tags == 'alias'%}
+					<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+			<label>First Name: <input type="text" name="first_name"></label>
+			{% if messages %}
+				{% for message in messages %}
+					{% if message.extra_tags == 'first_name'%}
+					<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+			<label>Last Name: <input type="text" name="last_name"></label>
+			{% if messages %}
+				{% for message in messages %}
+					{% if message.extra_tags == 'last_name'%}
+					<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+			<label>Email: <input type="email" name="email"></label>
+			{% if messages %}
+				{% for message in messages %}
+					{% if message.extra_tags == 'email'%}
+					<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+			<label>Date of Birth: <input type="date" name="dob"></label>
+			{% if messages %}
+				{% for message in messages %}
+					{% if message.extra_tags == 'dob'%}
+					<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
+					{% endif %}
+				{% endfor %}
+			{% endif %}	
+			<label>Password: <input type="password" name="password"></label>
+			{% if messages %}
+				{% for message in messages %}
+					{% if message.extra_tags == 'password'%}
+					<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
+					{% endif %}
+				{% endfor %}
+			{% endif %}				
+			<label>Confirm pw: <input type="password" name="confirm"></label>
+			{% if messages %}
+				{% for message in messages %}
+					{% if message.extra_tags == 'confirm'%}
+					<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
+					{% endif %}
+				{% endfor %}
+			{% endif %}				
+			<input type="submit" name="submit" value='Register'>
+		</form>
+	</div>
+	<a href="{%url 'index'%}">Already have an account? Login</a>
+</div>
+</body>
+</html>
