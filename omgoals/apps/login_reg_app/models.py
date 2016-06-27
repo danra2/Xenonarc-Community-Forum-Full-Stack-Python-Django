@@ -1,41 +1,69 @@
 from __future__ import unicode_literals
-from django import forms
 from django.db import models
+import bcrypt
 import re
-from django.core.exceptions import ValidationError
+from datetime import datetime
 
-PASSWORD_REGEX = re.compile(r'[A-Za-z0-9@#$%^&+=]{8,}')
-
-
-def validate_lengthGreaterThanTwo(value):
-	if len(value)<3:
-		raise ValidationError('{} must be longer than: 2'.format(value))
-def validate_password(value):
-	if not PASSWORD_REGEX.match(value):
-		raise ValidationError('Password must be at least 8 characters')
-
+EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9\.\+_-]+@[a-zA-Z0-9\._-]+\.[a-zA-Z]*$')
+NAME_REGEX = re.compile(r'^[a-zA-Z]{2,}$')
+ALIAS_REGEX = re.compile(r'^[a-zA-Z0-9 _-]{2,}$')
+PASSWORD_REGEX = re.compile(r'^[a-zA-Z0-9]{8,}')
 class UserManager(models.Manager):
-	def validate_confirm(request, password, confirm):
+
+	def get_id(request, email, password):
+		db_password = User.userManager.get(email=email)
+		return User.userManager.get(email=email, password= bcrypt.hashpw(password.encode('UTF-8'),db_password.password.encode('UTF-8'))).id
+
+	def login_val(request, email, password):
+		db_password = User.userManager.get(email=email)
+		if User.userManager.filter(email=email, password= bcrypt.hashpw(password.encode('UTF-8'),db_password.password.encode('UTF-8'))):
+			return True
+		return False
+
+	def name_val(request, name):
+		if NAME_REGEX.match(name):
+			return True
+		return False
+
+	def email_val(request, email):
+		if EMAIL_REGEX.match(email):
+			if not User.userManager.filter(email=email):
+				return True 
+		return False
+		
+	def password_val(request, password):
+		if PASSWORD_REGEX.match(password):
+			return True
+		return False
+
+	def confirm_val(request, password,confirm):
 		if password == confirm:
 			return True
 		return False
 
-	def login(request, email, password):
-		if User.userManager.filter(email=email, password=password):
+	def alias_val(request, alias):
+		if ALIAS_REGEX.match(alias):
 			return True
 		return False
 
+	def birthday_val(request, birthday):
+		if datetime.strptime(birthday, "%Y-%m-%d") < datetime.now():
+			return True
+		return False
+
+	def register_user(request, first, last, email, password, alias, dob):
+		User.userManager.create(first_name=first,last_name=last, email=email, password=bcrypt.hashpw(password.encode('UTF-8'), bcrypt.gensalt()), alias=alias, birthday=dob)
+
 class User(models.Model):
-	USER_LEVELS = (
-		(1, 'Normal'),
-		(9, 'Admin')
-	)
-	first_name = models.CharField(max_length=200, validators=[validate_lengthGreaterThanTwo])
-	last_name = models.CharField(max_length=200, validators=[validate_lengthGreaterThanTwo])
+
+	first_name = models.CharField(max_length=100)
+	last_name = models.CharField(max_length=100)
 	email = models.EmailField(max_length=45)
-	password = models.CharField(max_length=200, validators=[validate_password])
+	password = models.CharField(max_length=200)
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
-	user_level = models.SmallIntegerField(default=1, choices=USER_LEVELS)
 	description = models.TextField(max_length=1000)
 	userManager = UserManager()
+	alias = models.CharField(max_length=100)
+	birthday = models.DateField()
+

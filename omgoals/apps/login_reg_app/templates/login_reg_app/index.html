@@ -1,64 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Home</title>
 </head>
 <body>
 <div id="container">
-	<h2>Registration</h2>
-	<form class="" action="{%url 'home'%}" method="post">
-		{% csrf_token %}
-
-		<!-- {{regForm.as_p}} Django auto unpacking-->
-		<label>First Name: {{regForm.first_name}}</label>
-		{%if errors%}
-			{{errors.first_name}}
-		{%endif%}
-		<label>Last Name: {{regForm.last_name}}</label>
-		{%if errors%}
-			{{errors.last_name}}
-		{%endif%}
-		<label>Email: {{regForm.email}}</label>
-		{%if errors%}
-			{{errors.email}}
-		{%endif%}
-		<label>Password: {{regForm.password}}</label>
-		{%if errors%}
-			{{errors.password}}
-		{%endif%}		
-		<label>Confirm password: <input type="password" name="confirm"></label>
+	<div class="top">
+		<h1>Test App</h1>
+		<a href="{%url 'index'%}">Sign In</a>
+	</div>
+	<div class="main">
+		<h1>Signin</h1>
+		<form action="{%url 'signin'%}" method="post">
+			{% csrf_token %}
+			<label>Email Address <input type="text" name="email"></label>
+			<label>Password: <input type="text" name="password"></label>
+			<input type="submit" name="submit" value="Sign In">
+		</form>
 		{% if messages %}
 			{% for message in messages %}
-				{% if message.extra_tags == 'confirm'%}
-					<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
+				{% if message.extra_tags == 'login'%}
+				<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
 				{% endif %}
 			{% endfor %}
 		{% endif %}		
-		<input type="submit" name="name" value="Register">
-	</form>
-	<h2>Login</h2>
-	<form action="{%url 'login'%}" method="post">
-		{% csrf_token %}
-		<!-- {{loginForm.as_p}} auto unpacking-->
-		<label>Email: {{loginForm.email}}</label>
-		<label>Password: {{loginForm.password}}</label>
-		{% if messages %}
-			{% for message in messages %}
-				{% if message.extra_tags == 'email_error'%}
-					<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
-				{% endif %}
-			{% endfor %}
-		{% endif %}
-		{% if messages %}
-			{% for message in messages %}
-				{% if message.extra_tags == 'password_error'%}
-					<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
-				{% endif %}
-			{% endfor %}
-		{% endif %}	
-		<input type="submit" name="submit" value="Login">
-	</form>
-
+		<a href="{%url 'register'%}">Don't have an account? Register</a>
+	</div>
 </div>
 </body>
 </html>
