@@ -46,13 +46,8 @@ class UserManager(models.Manager):
 			return True
 		return False
 
-	def birthday_val(request, birthday):
-		if datetime.strptime(birthday, "%Y-%m-%d") < datetime.now():
-			return True
-		return False
-
-	def register_user(request, first, last, email, password, alias, dob):
-		User.userManager.create(first_name=first,last_name=last, email=email, password=bcrypt.hashpw(password.encode('UTF-8'), bcrypt.gensalt()), alias=alias, birthday=dob)
+	def register_user(request, first, last, email, password, alias):
+		User.userManager.create(first_name=first,last_name=last, email=email, password=bcrypt.hashpw(password.encode('UTF-8'), bcrypt.gensalt()), alias=alias)
 
 class User(models.Model):
 
@@ -65,5 +60,4 @@ class User(models.Model):
 	description = models.TextField(max_length=1000)
 	userManager = UserManager()
 	alias = models.CharField(max_length=100)
-	birthday = models.DateField()
 

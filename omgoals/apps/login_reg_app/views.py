@@ -39,12 +39,9 @@ def validation(request):
 		if not User.userManager.alias_val(request.POST['alias']):
 			messages.error(request, 'Alias must be at least 2 characters, Letters and numbers, Space, Dash, and Underscore only')
 			valid = False
-		if not User.userManager.birthday_val(request.POST['dob']):
-			messages.error(request, 'Invalid Birthday', extra_tags='dob')
-			valid = False
 
 		if valid:
-			User.userManager.register_user(request.POST['first_name'], request.POST['last_name'], request.POST['email'], request.POST['password'])
+			User.userManager.register_user(request.POST['first_name'], request.POST['last_name'], request.POST['email'], request.POST['password'], request.POST['alias'])
 			
 			request.session['id'] = User.userManager.get_id(request.POST['email'], request.POST['password'])
 			messages.success(request, 'registered.')
