@@ -1,0 +1,42 @@
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css");
+
+#header {
+    background-color: darkorange !important;
+    border-bottom: 2px solid black;
+    border-radius: 8px;
+}
+
+    #logo {
+        margin-bottom: 20px;
+        margin-top: 20px;
+        margin-left: 10px;
+        transform: scale(1.1, 1.5);
+    }
+
+    #header form input{
+        margin-top: 20px;
+
+    }
+
+.container {
+    background-color: #FFA500;
+    border: 2px solid black;
+}
+
+#registration {
+    width: 100%;
+    padding: 20px;
+}
+
+#register {
+    background-color: white !important;
+    padding: 15px;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+    #register form input {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        margin-left: 1px;
+    }
