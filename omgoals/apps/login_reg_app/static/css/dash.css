@@ -4,6 +4,7 @@
     background-color: #ecebeb;
     border-radius: 8px;
     border: 2px solid black;
+
 }
 
 #header {
@@ -32,6 +33,7 @@
 
 #dashboard {
     padding: 15px;
+    height: 450px;
 }
 
 #welcome {
@@ -61,6 +63,7 @@
     border: 2px solid black;
     border-radius: 3px;
     text-align: center;
+    margin-bottom: 15px;
 }
 
     #friends_list h4, h5 {
@@ -68,8 +71,23 @@
         margin-bottom: 0px !important;
     }
 
-#daily {
-    border: 2px solid black;
-    border-radius: 5px;
-    padding: 0px !important;
+#right_dash {
+    height: 100%;
 }
+
+    #daily {
+        border: 2px solid black;
+        border-radius: 5px;
+        padding: 0px !important;
+        margin-bottom: 10px;
+        height: 47%;
+        background-color: white !important;
+    }
+
+    #goals {
+        border: 2px solid black;
+        border-radius: 5px;
+        padding: 0px !important;
+        height: 47%;
+        background-color: white !important;
+    }
