@@ -1,0 +1,75 @@
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css");
+
+.container {
+    background-color: #ecebeb;
+    border-radius: 8px;
+    border: 2px solid black;
+}
+
+#header {
+    background-color: #ffc374;
+    border-bottom: 2px solid black;
+    border-radius: 8px;
+}
+
+    #header #logo {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        transform: scale(1.1, 1.5);
+    }
+
+    #header #toolbar{
+        margin-top: 18px;
+        border: 1px solid black;
+        border-radius:5px;
+    }
+
+    #header #logout {
+        margin-top: 18px;
+
+    }
+
+#dashboard {
+    padding: 15px;
+}
+
+#welcome {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 0px !important;
+    background-color: white !important;
+}
+
+.div_headers {
+    background-color: #ffc374;
+    border-bottom: 2px solid black;
+    text-align: center;
+}
+
+    .div_headers h4, h5 {
+        margin: 0px !important;
+        padding-top: 5px;
+
+    }
+
+#stats p {
+    margin-top: 15px;
+}
+
+#friends_list {
+    border: 2px solid black;
+    border-radius: 3px;
+    text-align: center;
+}
+
+    #friends_list h4, h5 {
+        padding-top: 0px !important;
+        margin-bottom: 0px !important;
+    }
+
+#daily {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 0px !important;
+}

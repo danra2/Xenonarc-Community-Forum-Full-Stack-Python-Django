@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	{% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/dash.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{{STATIC_URL}}/favicon"/>
+    <meta charset="UTF-8">
+</head>
+<body>
+	<div class="container">
+		<div class="row" id='header'>
+			<div class='col-xs-5'>
+				<h2 id='logo'>Oh My Goals!</h2>
+			</div>
+			<div class='col-xs-5'>
+				<div id='toolbar' class='btn-group' role='toolbar'>
+					<button type='button' class='btn btn-secondary active'><a href='#'>Today</a></button>
+					<button type='button' class='btn btn-secondary'><a href='#'>Add</a></button>
+					<button type='button' class='btn btn-secondary'>Filter</button>
+					<button type='button' class='btn btn-secondary'>Journal</button>
+					<button type='button' class='btn btn-secondary'>Achieved</button>
+				</div>
+			</div>
+            <div class='col-xs-1'>
+				<button id='logout' type='button' class='btn btn-primary'>Log Out</button>
+			</div>
+		</div>
+		<div class='row' id="dashboard">
+			<div class='col-xs-3' id='welcome'>
+				<div class='div_headers'>
+					<h4>Welcome back, User!</h4>
+					<h5>June 26, 2016</h5>
+				</div>
+				<div class='col-xs-12' id='stats'>
+					<p>Making gainz for 69 days</p>
+					<p>Days of consecutive progress: 4</p>
+					<p>Goals completed: 10</p>
+					<p>Goals in progress: 4</p>
+				</div>
+				<div class='col-xs-10 col-xs-offset-1' id='friends_list'>
+					<h4>Friends List</h4>
+					<h5>5 friends</h5>
+				</div>
+			</div>
+
+			<div class='col-xs-9' id='right_dash'>
+				<div class='col-xs-12' id='daily'>
+					<div class='div_headers'>
+						<h4>Daily Goals</h4>
+					</div>
+					<div id='daily_list'>
+						
+					</div>
+				</div>
+		</div>
+	</div>
+</body>
+</html>

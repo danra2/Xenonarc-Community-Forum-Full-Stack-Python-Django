@@ -19,13 +19,15 @@
     }
 
 .container {
-    background-color: #FFA500;
+    background-color: #ffc374;
     border: 2px solid black;
+    border-radius: 8px;
 }
 
 #registration {
     width: 100%;
     padding: 20px;
+
 }
 
 #register {

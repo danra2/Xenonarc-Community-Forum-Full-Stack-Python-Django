@@ -42,13 +42,16 @@ def validation(request):
 
 		if valid:
 			User.userManager.register_user(request.POST['first_name'], request.POST['last_name'], request.POST['email'], request.POST['password'], request.POST['alias'])
-			
+
 			request.session['id'] = User.userManager.get_id(request.POST['email'], request.POST['password'])
 			messages.success(request, 'registered.')
 
 			return redirect(reverse('success'))
-		else:	
+		else:
 			return redirect(reverse('register'))
 
 def success(request):
 	return render(request, 'login_reg_app/success.html')
+
+def dash(request):
+	return render(request, 'login_reg_app/dash.html')
