@@ -26,6 +26,11 @@
         border-radius:5px;
     }
 
+    #header #store {
+        margin-top: 18px;
+
+    }
+
     #header #logout {
         margin-top: 18px;
 

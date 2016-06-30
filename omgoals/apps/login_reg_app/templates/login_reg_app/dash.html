@@ -13,17 +13,20 @@
 			<div class='col-xs-5'>
 				<h2 id='logo'>Oh My Goals!</h2>
 			</div>
-			<div class='col-xs-5'>
+			<div class='col-xs-4'>
 				<div id='toolbar' class='btn-group' role='toolbar'>
-					<button type='button' class='btn btn-secondary active'><a href='#'>Today</a></button>
-					<button type='button' class='btn btn-secondary'><a href='#'>Add</a></button>
-					<button type='button' class='btn btn-secondary'>Filter</button>
-					<button type='button' class='btn btn-secondary'>Journal</button>
+					<button type='button' class='btn btn-secondary active'>Today</a></button>
+					<button type='button' class='btn btn-secondary'><a href="{%url 'add_goal'%}">Add</a></button>
+					<button type='button' class='btn btn-secondary'><a href="{%url 'profile'%}">Profile</a></button>
+					<button type='button' class='btn btn-secondary'><a href="{%url 'journal'%}">Journal</a></button>
 					<button type='button' class='btn btn-secondary'><a href="{%url 'achieved_page'%}">Achieved</a></button>
 				</div>
 			</div>
+			<div class='col-xs-1'>
+                <button id='store' type='button' class='btn btn-secondary'>Store</button>
+            </div>
             <div class='col-xs-1'>
-				<button id='logout' type='button' class='btn btn-primary'>Log Out</button>
+				<a href="{%url 'logout'%}"><button id='logout' type='button' class='btn btn-primary'>Log Out</button></a>
 			</div>
 		</div>
 		<div class='row' id="dashboard">

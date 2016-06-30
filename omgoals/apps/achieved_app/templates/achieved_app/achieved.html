@@ -1,9 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Home</title>
+	{% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/achieved.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{{STATIC_URL}}/favicon"/>
+    <meta charset="UTF-8">
 </head>
 <body>
-
+	<div class="container">
+		<div class="row" id='header'>
+			<div class='col-xs-5'>
+				<h2 id='logo'>Oh My Goals!</h2>
+			</div>
+			<div class='col-xs-4'>
+				<div id='toolbar' class='btn-group' role='toolbar'>
+					<button type='button' class='btn btn-secondary'><a href="{%url 'dash'%}">Today</a></button>
+					<button type='button' class='btn btn-secondary'><a href="{%url 'add_goal'%}">Add</a></button>
+					<button type='button' class='btn btn-secondary'><a href="{%url 'profile'%}">Profile</a></button>
+					<button type='button' class='btn btn-secondary'><a href="{%url 'journal'%}">Journal</a></button>
+					<button type='button' class='btn btn-secondary active'>Achieved</button>
+				</div>
+			</div>
+			<div class='col-xs-1'>
+                <button id='store' type='button' class='btn btn-secondary'>Store</button>
+            </div>
+            <div class='col-xs-1'>
+				<a href="{%url 'logout'%}"><button id='logout' type='button' class='btn btn-primary'>Log Out</button></a>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
