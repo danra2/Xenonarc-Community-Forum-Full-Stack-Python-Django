@@ -14,6 +14,10 @@ def signin(request):
 		messages.error(request, 'Invalid Login', extra_tags='login')
 		return redirect(reverse('index'))
 
+def logout(request):
+	del request.session['id']
+	return redirect(reverse('index'))
+
 def validation(request):
 
 	if request.method =='POST':
@@ -44,7 +48,7 @@ def validation(request):
 			messages.success(request, 'registered.')
 
 			return redirect(reverse('dash'))
-		else:	
+		else:
 			return redirect(reverse('index'))
 
 def dash(request):
@@ -65,11 +69,11 @@ def edit_name(request):
 	if not User.userManager.name_val(request.POST['first']):
 		messages.error(request, 'Name must be longer than 2 characters, Letters only', extra_tags='first_name')
 		valid = False
-		
+
 	if not User.userManager.name_val(request.POST['last']):
 		messages.error(request, 'Name must be longer than 2 characters, Letters only', extra_tags='last_name')
 		valid = False
-	
+
 	if valid:
 		User.userManager.filter(id=request.session['id']).update(first_name=request.POST['first'], last_name=request.POST['last'])
 
