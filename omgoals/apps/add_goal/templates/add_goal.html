@@ -32,6 +32,7 @@
 
 
             <div id="content">
+
                 <form class="form-horizontal" action='{%url "insert_goal" %}' method='post'>
                     {% csrf_token %}
                     <div class="form-group">
@@ -110,13 +111,17 @@
                         <img src="{% static 'img/owl.png' %}" id="owl" class="col-sm-offset-2 col-sm-10" />
                         <img src="{% static 'img/pony.png' %}" id="horse" class="col-sm-offset-2 col-sm-10" />
                     </div>
-                    
+
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                             <input type='submit' id="create" type='button' class='btn btn-primary' value='Create Goal'>
                         </div>
                     </div>
-            <div id="footer">
+                </form>
+
+                <div id="footer">
+
+                </div>
 
             </div>
             
