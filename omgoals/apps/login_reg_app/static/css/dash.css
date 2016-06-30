@@ -1,5 +1,9 @@
 @import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css");
 
+html{
+    background: url("../img/dark_dotted.png") repeat;
+}
+
 .container {
     background-color: #ecebeb;
     border-radius: 8px;

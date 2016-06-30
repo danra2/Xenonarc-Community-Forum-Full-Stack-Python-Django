@@ -5,6 +5,11 @@
 	{% load staticfiles %}
     <link rel="stylesheet" href="{% static 'css/dash.css' %}">
     <link rel="shortcut icon" type="image/png" href="{{STATIC_URL}}/favicon"/>
+    <link rel="stylesheet" href="{% static 'css/avgrund.css' %}">
+	<script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+	<script type="text/javascript" src="{% static 'login_reg_app/js/jquery.avgrund.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'login_reg_app/js/dash.js' %}"></script>
+
     <meta charset="UTF-8">
 </head>
 <body>
@@ -59,8 +64,8 @@
 						<h4>Daily Goals</h4>
 					</div>
 					<div id='daily_list'>
-						<img src="{% static 'img/owl.png' %}" />
-						<img src="{% static 'img/pony.png' %}" />
+						<img class="animal_img" src="{% static 'img/owl.png' %}" />
+						<img class="animal_img" src="{% static 'img/pony.png' %}" />
 					</div>
 				</div>
 				<div class='col-xs-12' id='goals'>
@@ -68,7 +73,7 @@
 						<h4>Your Goals</h4>
 					</div>
 					<div id='goal_list'>
-						<img src="{% static 'img/penguin.png' %}" />
+						<img class="animal_img" src="{% static 'img/penguin.png' %}" />
 					</div>
 				</div>
 			</div>
