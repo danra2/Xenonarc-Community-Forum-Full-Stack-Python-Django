@@ -7,6 +7,8 @@ def add_goal(request):
 	return render(request, 'add_goal.html')
 
 def insert_goal(request):
+	print request.POST['category']
+	
 	Goal.goalManager.insert_goal(request.POST['title'], request.POST['description'], request.POST['due_date'], request.POST['priority'], request.POST['category'], request.session['id'], request.POST['animal_name'])
 
 	return redirect(reverse('dash'))

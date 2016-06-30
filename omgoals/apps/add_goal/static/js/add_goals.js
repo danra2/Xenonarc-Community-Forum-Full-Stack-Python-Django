@@ -13,13 +13,13 @@ $(document).ready(function(){
     //Display animal picture with corresponding category
     $("#category").change(function() {
         $("#animals").hideAnimals();
-        if ($(this).val() === 'career') {
+        if ($(this).val() === 'Career') {
             $("#penguin").show();
             $("#animal_name").val("Penguin");
-        } else if ($(this).val() === 'spiritual') {
+        } else if ($(this).val() === 'Spiritual') {
             $("#horse").show();
             $("#animal_name").val("Horse");
-        } else if ($(this).val() === 'education') {
+        } else if ($(this).val() === 'Education') {
             $("#owl").show();
             $("#animal_name").val("Owl");
         }
