@@ -29,6 +29,20 @@
 				<a href="{%url 'logout'%}"><button id='logout' type='button' class='btn btn-primary'>Log Out</button></a>
 			</div>
 		</div>
+		<div class="mid_filter">
+			<a href="">All</a>
+			<a href="">Category</a>
+		</div>
+		{%for task in achieved%}
+		<div class="task  col-md-4">
+			<h4>{{task.goal_name}}</h4>
+			<h4>{{task.description}}</h4>
+			<h4>{{task.completion_date}}</h4>
+			{% load staticfiles %}
+			<img class="animal_img" src="{% static 'img/'|add:task.final_image %}">
+
+		</div>
+		{%endfor%}
 	</div>
 </body>
 </html>
