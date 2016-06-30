@@ -17,10 +17,12 @@ class UserManager(models.Manager):
 		return User.userManager.get(email=email, password= bcrypt.hashpw(password.encode('UTF-8'),db_password.password.encode('UTF-8'))).id
 
 	def login_val(request, email, password):
-		db_password = User.userManager.get(email=email)
-		if User.userManager.filter(email=email, password= bcrypt.hashpw(password.encode('UTF-8'),db_password.password.encode('UTF-8'))):
-			return True
-		return False
+		try: 
+			db_password = User.userManager.get(email=email)
+			if User.userManager.filter(email=email, password= bcrypt.hashpw(password.encode('UTF-8'),db_password.password.encode('UTF-8'))):
+				return True
+		except:		
+			return False
 
 	def name_val(request, name):
 		if NAME_REGEX.match(name):
