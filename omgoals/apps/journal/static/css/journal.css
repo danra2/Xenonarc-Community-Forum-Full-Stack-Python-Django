@@ -2,15 +2,16 @@
 
 .container {
     background-color: #ecebeb;
-    border-radius: 8px;
-    border: 2px solid black;
+    /*border-radius: 8px;
+    border: 2px solid black;*/
 
 }
 
 #header {
-    background-color: #ffc374;
-    border-bottom: 2px solid black;
-    border-radius: 8px;
+    background-color: lightblue;
+    color: white;
+    /*border-bottom: 2px solid black;
+    border-radius: 8px;*/
 }
 
     #header #logo {
@@ -35,3 +36,35 @@
         margin-top: 18px;
 
     }
+
+.btn {
+    padding-right: 10px;
+    background-color: lightblue;
+    border: none;
+}
+
+/* Footer CSS below! */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin: 0 0 60px; /* bottom = footer height */
+    /*padding: 25px;*/
+}
+
+#footer {
+    background-color: lightblue;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    overflow:hidden;
+    /* footer content*/
+    color: white;
+    font-variant: small-caps;
+    padding-top: 1em;
+}
+/* end of footer CSS */
