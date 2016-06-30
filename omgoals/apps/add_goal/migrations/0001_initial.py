@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# -*- coding: utf-8 -*-
-=======
->>>>>>> df9db2b5580e215ec9388f532392245e00cc29d5
 from __future__ import unicode_literals
 
 from django.db import migrations, models
