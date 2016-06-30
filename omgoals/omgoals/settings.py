@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 
 #https://apps.twitter.com/app/new
 INSTALLED_APPS = [
+    'apps.journal',
+    'apps.add_goal',
     'apps.login_reg_app',
     'django.contrib.admin',
     'django.contrib.auth',

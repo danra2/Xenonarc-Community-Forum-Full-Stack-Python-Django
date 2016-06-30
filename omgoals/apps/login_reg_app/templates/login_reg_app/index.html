@@ -2,81 +2,100 @@
 <html>
 <head>
 	<title>Home</title>
+	{% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{{STATIC_URL}}/favicon"/>
+    <meta charset="UTF-8">
 </head>
 <body>
-<div id="container">
-	<div class="top">
-		<h1>Signin</h1>
-		<form action="{%url 'signin'%}" method="post">
-			{% csrf_token %}
-			<label>Email Address <input type="text" name="email"></label>
-			<label>Password: <input type="password" name="password"></label>
-			<input type="submit" name="submit" value="Sign In">
-		</form>
-		{% if messages %}
-			{% for message in messages %}
-				{% if message.extra_tags == 'login'%}
-				<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
-				{% endif %}
-			{% endfor %}
-		{% endif %}		
-	</div>
-	<div class="registration">
-		<h1>Registration</h1>
-		<form action="{% url 'validation' %}" method='post'>
-		{% csrf_token %}
+	<div class="container">
+		<div class="row" id='header'>
+			<div class='col-xs-4'>
+				<h2 id='logo'>Oh My Goals!</h2>
+			</div>
+			<div class='col-xs-7 col-xs-offset-1'>
+				<form class='form-inline' id='login' action="{%url 'signin'%}" method="post">
+					{% csrf_token %}
+					<input type="text" class='form-control' name="email" placeholder='Email Address'>
+					<input type="text" class='form-control' name="password" placeholder='Password'>
+					<input type="submit" class='btn btn-success' name="submit" value="Log In">
+				</form>
+			</div>
+		</div>
+			{% if messages %}
+				{% for message in messages %}
+					{% if message.extra_tags == 'login'%}
+					<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+		<div class='row' id="registration">
+			<div class='col-xs-8'>
+				<div class='col-xs-8 col-xs-offset-1'>
+					<h4 id>Become a better version of yourself by setting goals and watching your progress grow!</h4>
+					<img id='computer' src="{% static 'img/computer.png' %}">
+				</div>
+			</div>
+			<div class='col-xs-4' id='register'>
 
-			<label>User Name: <input type="text" name="alias"></label>
-			{% if messages %}
-				{% for message in messages %}
-					{% if message.extra_tags == 'alias'%}
-					<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
-					{% endif %}
-				{% endfor %}
-			{% endif %}
-			<label>First Name: <input type="text" name="first_name"></label>
-			{% if messages %}
-				{% for message in messages %}
-					{% if message.extra_tags == 'first_name'%}
-					<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
-					{% endif %}
-				{% endfor %}
-			{% endif %}
-			<label>Last Name: <input type="text" name="last_name"></label>
-			{% if messages %}
-				{% for message in messages %}
-					{% if message.extra_tags == 'last_name'%}
-					<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
-					{% endif %}
-				{% endfor %}
-			{% endif %}
-			<label>Email: <input type="email" name="email"></label>
-			{% if messages %}
-				{% for message in messages %}
-					{% if message.extra_tags == 'email'%}
-					<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
-					{% endif %}
-				{% endfor %}
-			{% endif %}
-			<label>Password: <input type="password" name="password"></label>
-			{% if messages %}
-				{% for message in messages %}
-					{% if message.extra_tags == 'password'%}
-					<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
-					{% endif %}
-				{% endfor %}
-			{% endif %}				
-			<label>Confirm pw: <input type="password" name="confirm"></label>
-			{% if messages %}
-				{% for message in messages %}
-					{% if message.extra_tags == 'confirm'%}
-					<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
-					{% endif %}
-				{% endfor %}
-			{% endif %}				
-			<input type="submit" name="submit" value='Register'>
-		</form>
-	</div>	
-</div>
+				<div class='col-xs-10 col-xs-offset-1'>
+					<h4>Register below:</h4>
+					<form class='form-horizontal' action="{% url 'validation' %}" method='post'>
+					{% csrf_token %}
+
+						<input class='form-control' type="text" name="alias" placeholder="User Name">
+						{% if messages %}
+							{% for message in messages %}
+								{% if message.extra_tags == 'alias'%}
+								<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
+								{% endif %}
+							{% endfor %}
+						{% endif %}
+						<input class='form-control' type="text" name="first_name" placeholder="First Name">
+						{% if messages %}
+							{% for message in messages %}
+								{% if message.extra_tags == 'first_name'%}
+								<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
+								{% endif %}
+							{% endfor %}
+						{% endif %}
+						<input class='form-control' type="text" name="last_name" placeholder="Last Name">
+						{% if messages %}
+							{% for message in messages %}
+								{% if message.extra_tags == 'last_name'%}
+								<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
+								{% endif %}
+							{% endfor %}
+						{% endif %}
+						<input class='form-control' type="email" name="email" placeholder="E-mail">
+						{% if messages %}
+							{% for message in messages %}
+								{% if message.extra_tags == 'email'%}
+								<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
+								{% endif %}
+							{% endfor %}
+						{% endif %}
+						<input class='form-control' type="password" name="password" placeholder="Password">
+						{% if messages %}
+							{% for message in messages %}
+								{% if message.extra_tags == 'password'%}
+								<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
+								{% endif %}
+							{% endfor %}
+						{% endif %}
+						<input class='form-control' type="password" name="confirm" placeholder="Password Confirmation">
+						{% if messages %}
+							{% for message in messages %}
+								{% if message.extra_tags == 'confirm'%}
+								<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
+								{% endif %}
+							{% endfor %}
+						{% endif %}
+						<input class='btn btn-primary' type="submit" name="submit" value='Sign Up'>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

@@ -42,10 +42,11 @@ def validation(request):
 
 		if valid:
 			User.userManager.register_user(request.POST['first_name'], request.POST['last_name'], request.POST['email'], request.POST['password'], request.POST['alias'])
-			
+
 			request.session['id'] = User.userManager.get_id(request.POST['email'], request.POST['password'])
 			messages.success(request, 'registered.')
 
+<<<<<<< HEAD
 			return redirect(reverse('dash'))
 		else:	
 			return redirect(reverse('register'))
@@ -84,3 +85,14 @@ def edit_email(request):
 	else:
 		User.userManager.filter(id=request.session['id']).update(email=request.POST['email'])
 	return redirect(reverse('edit_profile'))
+=======
+			return redirect(reverse('success'))
+		else:
+			return redirect(reverse('register'))
+
+def success(request):
+	return render(request, 'login_reg_app/success.html')
+
+def dash(request):
+	return render(request, 'login_reg_app/dash.html')
+>>>>>>> 297e82e223fbb9a6e23ca76bdb14b079b128b31d

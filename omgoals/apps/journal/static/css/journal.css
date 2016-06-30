@@ -1,0 +1,32 @@
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css");
+
+.container {
+    background-color: #ecebeb;
+    border-radius: 8px;
+    border: 2px solid black;
+
+}
+
+#header {
+    background-color: #ffc374;
+    border-bottom: 2px solid black;
+    border-radius: 8px;
+}
+
+    #header #logo {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 20px;
+        transform: scale(1.1, 1.5);
+    }
+
+    #header #toolbar{
+        margin-top: 18px;
+        border: 1px solid black;
+        border-radius:5px;
+    }
+
+    #header #logout {
+        margin-top: 18px;
+
+    }
