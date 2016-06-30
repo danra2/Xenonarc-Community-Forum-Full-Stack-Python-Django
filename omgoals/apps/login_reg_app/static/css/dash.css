@@ -71,9 +71,21 @@
         margin-bottom: 0px !important;
     }
 
+    #friends img {
+        height: 75px;
+        width: auto;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+
 #right_dash {
     height: 100%;
 }
+    #all_goals img{
+        height: 250px;
+        width: auto;
+        padding: 1em;
+    }
 
     #daily {
         border: 2px solid black;
@@ -91,3 +103,4 @@
         height: 47%;
         background-color: white !important;
     }
+
