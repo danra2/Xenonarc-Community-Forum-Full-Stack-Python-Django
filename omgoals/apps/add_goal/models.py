@@ -3,6 +3,15 @@ from __future__ import unicode_literals
 from django.db import models
 from ..login_reg_app.models import User
 
+class GoalManager(models.Manager):
+    def insert_goal(self, title, description, due_date, priority, category_name, user_id, animal_name):
+        category = Category.objects.get(name=category_name)
+        user = User.objects.get(id=user_id)
+        self.create(title=title, description=description, due_date=due_date, category_id=category, user_id=user)
+        this_goal = self.get(title=title, user_id=user, description=description)
+        animal = Animal.objects.get(name=animal_name)
+        GoalAnimal.objects.create(goal_id=this_goal, animal_id=animal, current_image=animal.image)
+
 # Create your models here.
 class Category(models.Model):
     category = models.CharField(max_length=100)
@@ -25,6 +34,9 @@ class Goal(models.Model):
 
     category_id = models.ForeignKey(Category)
     user_id = models.ForeignKey(User)
+
+    goalManager = GoalManager()
+    objects = models.Manager()
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
