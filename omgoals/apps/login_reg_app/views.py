@@ -9,13 +9,11 @@ def index(request):
 def signin(request):
 	if User.userManager.login_val(request.POST['email'], request.POST['password']):
 		request.session['id'] = User.userManager.get_id(request.POST['email'],request.POST['password'])
-		return redirect(reverse('success'))
+		return redirect(reverse('dashboard'))
 	else:
 		messages.error(request, 'Invalid Login', extra_tags='login')
 		return redirect(reverse('index'))
 
-def register(request):
-	return render(request, 'login_reg_app/register.html')
 
 def validation(request):
 
@@ -46,12 +44,10 @@ def validation(request):
 			request.session['id'] = User.userManager.get_id(request.POST['email'], request.POST['password'])
 			messages.success(request, 'registered.')
 
-			return redirect(reverse('success'))
+			return redirect(reverse('dashboard'))
 		else:
-			return redirect(reverse('register'))
+			return redirect(reverse('index'))
 
-def success(request):
-	return render(request, 'login_reg_app/success.html')
 
 def dash(request):
 	return render(request, 'login_reg_app/dash.html')
