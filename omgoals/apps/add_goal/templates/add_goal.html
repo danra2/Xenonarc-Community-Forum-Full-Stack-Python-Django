@@ -30,21 +30,18 @@
                 </div>
             </div>
 
-
             <div id="content" class='row'>
                 <div class="col-sm-offset-1 col-sm-6">
                 <!-- Goal form -->
                     <form class="form-horizontal" action='{%url "insert_goal" %}' method='post'>
                         {% csrf_token %}
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10" id="smart_description">
-                                <h2>Is your goal a S.M.A.R.T. goal?</h2>
-                                <p><strong>Specific:</strong> the goal clearly states what it will achieve</p>
-                                <p><strong>Measurable:</strong> you will know when you have achieved your goal</p>
-                                <p><strong>Achievable:</strong> the goal can actually be met</p>
-                                <p><strong>Relevant:</strong> the goal reflects your values in life</p>
-                                <p><strong>Time Specific:</strong> you know when you want to achieve this goal by</p>
-                            </div>
+                        <div class="col-sm-offset-2 col-sm-10" id="smart_description">
+                            <h2>Is your goal a S.M.A.R.T. goal?</h2>
+                            <p><strong>Specific:</strong> the goal clearly states what it will achieve</p>
+                            <p><strong>Measurable:</strong> you will know when you have achieved your goal</p>
+                            <p><strong>Achievable:</strong> the goal can actually be met</p>
+                            <p><strong>Relevant:</strong> the goal reflects your values in life</p>
+                            <p><strong>Time Specific:</strong> you know when you want to achieve this goal by</p>
                         </div>
 
                         <div class="form-group">
@@ -82,7 +79,7 @@
                         </div>
 
                         <div class="form-group">
-                        <label for="category" class="col-sm-2 control-label">Goal Category</label>
+                            <label for="category" class="col-sm-2 control-label">Goal Category</label>
                             <div class="col-sm-10">
                                 <select class="form-control" id="category" name='category'>
                                     <option>--</option>
@@ -107,6 +104,7 @@
                             </div>
                         </div>
 
+
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <input type='submit' id="create" type='button' class='btn btn-primary' value='Create Goal'>
@@ -125,7 +123,9 @@
                 <div id="footer">
 
                 </div>
+
             </div>
+
         </div>
     </div>
 </body>
