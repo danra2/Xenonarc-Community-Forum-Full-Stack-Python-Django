@@ -10,6 +10,8 @@ ALIAS_REGEX = re.compile(r'^[a-zA-Z0-9 _-]{2,}$')
 PASSWORD_REGEX = re.compile(r'^[a-zA-Z0-9]{8,}')
 class UserManager(models.Manager):
 
+	#Login and Registration Methods
+
 	def get_id(request, email, password):
 		db_password = User.userManager.get(email=email)
 		return User.userManager.get(email=email, password= bcrypt.hashpw(password.encode('UTF-8'),db_password.password.encode('UTF-8'))).id
@@ -48,6 +50,8 @@ class UserManager(models.Manager):
 
 	def register_user(request, first, last, email, password, alias):
 		User.userManager.create(first_name=first,last_name=last, email=email, password=bcrypt.hashpw(password.encode('UTF-8'), bcrypt.gensalt()), alias=alias)
+
+	#Profile Methods
 
 class User(models.Model):
 
