@@ -6,7 +6,7 @@ $(document).ready(function(){
             $("#horse").hide();
             $("#owl").hide();
         }
-    })( jQuery ); 
+    })( jQuery );
     //Hide animal pictures initially
     $("#animals").hideAnimals();
 
@@ -15,11 +15,14 @@ $(document).ready(function(){
         $("#animals").hideAnimals();
         if ($(this).val() === 'career') {
             $("#penguin").show();
+            $("#animal_name").val("Penguin");
         } else if ($(this).val() === 'spiritual') {
             $("#horse").show();
+            $("#animal_name").val("Horse");
         } else if ($(this).val() === 'education') {
             $("#owl").show();
-        }        
+            $("#animal_name").val("Owl");
+        }
     })
-});
 
+});
