@@ -9,11 +9,13 @@
 		<a href="{%url 'edit_profile'%}">Edit Profile</a>
 	</div>
 	<div class="main">
-		<h2>Username</h2>
-		<h2>First Name</h2>
-		<h2>Last Name</h2>
-		<h2>Email</h2>
-
+		{%for info in profile%}
+			<h2>Username: {{info.alias}}</h2>
+			<h2>First Name: {{info.first_name}}</h2>
+			<h2>Last Name: {{info.last_name}}</h2>
+			<h2>Email: {{info.email}}</h2>
+		{%endfor%}
+		
 		<div class="collection"></div>
 
 	</div>

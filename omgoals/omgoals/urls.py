@@ -23,5 +23,6 @@ admin.site.register(User, UserAdmin)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('apps.login_reg_app.urls'))
+    url(r'^', include('apps.login_reg_app.urls')),
+    url(r'^add/', include('apps.add_goal.urls'))
 ]

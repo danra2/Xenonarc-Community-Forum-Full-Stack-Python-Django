@@ -32,7 +32,6 @@ ALLOWED_HOSTS = []
 
 #https://apps.twitter.com/app/new
 INSTALLED_APPS = [
-    'apps.twitter.app',
     'apps.login_reg_app',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -117,7 +116,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
