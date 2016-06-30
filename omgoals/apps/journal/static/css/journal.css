@@ -1,46 +1,51 @@
 @import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css");
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic);
 
 body {
     background-color: #ecebeb;
-    /*border-radius: 8px;
-    border: 2px solid black;*/
+    font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 12pt;
+}
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Raleway", "Helvetica Neue", Helvetica, sans-serif;
+    margin-bottom: 5px;
 }
 
 #header {
-    background-color: lightblue;
+    background-image: url("../img/header.jpg");
+    background-repeat: repeat-x;
     color: white;
-    /*border-bottom: 2px solid black;
-    border-radius: 8px;*/
+    height: 80px;
 }
-
-    #header #logo {
-        margin-top: 20px;
-        margin-bottom: 20px;
-        margin-left: 20px;
-        transform: scale(1.1, 1.5);
-    }
 
     #header #toolbar{
         margin-top: 18px;
-        border: 1px solid black;
         border-radius:5px;
-    }
-
-    #header #store {
-        margin-top: 18px;
-
-    }
-
-    #header #logout {
-        margin-top: 18px;
-
     }
 
 .btn {
     padding-right: 10px;
-    background-color: lightblue;
+    background-color: #76C7C0;
     border: none;
+    color: white;
+    border: 0 none;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+ 
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+ 
+.btn:hover, .btn:focus, .btn:active, .btn.active, .open > .dropdown-toggle.btn {
+    background: #51b8af;
+}
+
+a, a:link, a:visited, a:hover, a:active {
+    color: white;
+    text-decoration: none;
 }
 
 /* Footer CSS below! */
@@ -50,16 +55,17 @@ html {
 }
 
 body {
-    margin: 0 0 60px; /* bottom = footer height */
+    margin: 0 0 116px; /* bottom = footer height */
     /*padding: 25px;*/
 }
 
 #footer {
-    background-color: lightblue;
+    background-image: url("../img/footer.jpg");
+    background-repeat: repeat-x;
     position: absolute;
     left: 0;
     bottom: 0;
-    height: 60px;
+    height: 116px;
     width: 100%;
     overflow:hidden;
     /* footer content*/

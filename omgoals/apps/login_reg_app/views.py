@@ -15,7 +15,10 @@ def signin(request):
 		return redirect(reverse('index'))
 
 def logout(request):
-	del request.session['id']
+	try:
+		del request.session['id']
+	except:
+		pass
 	return redirect(reverse('index'))
 
 def validation(request):
