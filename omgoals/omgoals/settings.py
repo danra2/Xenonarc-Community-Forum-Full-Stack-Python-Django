@@ -30,7 +30,9 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+#https://apps.twitter.com/app/new
 INSTALLED_APPS = [
+    'apps.achieved_app',
     'apps.journal',
     'apps.add_goal',
     'apps.login_reg_app',
@@ -40,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -116,7 +119,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/

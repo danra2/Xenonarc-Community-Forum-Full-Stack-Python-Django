@@ -4,4 +4,4 @@ from .models import User
 from django.contrib import messages
 
 def add_goal(request):
-    return render(request, 'add_goal.html')
+	return render(request, 'add_goal/add_goal.html')

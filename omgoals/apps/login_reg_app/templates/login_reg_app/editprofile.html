@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Profile</title>
+	<meta charset="utf-8">
+
+	{% load staticfiles %}
+	<script type="text/javascript" src="{% static 'login_reg_app/js/jquery.js' %}"></script>
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.collapsible').collapsible({
+				accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+			});
+		});
+	</script>
+</head>
+<body>
+<div id="container">
+	<div class="top">
+		<a href="{%url 'profile'%}">Back to Profile</a>
+	</div>
+	<div class="main">
+		{%for info in profile%}
+		<ul class="collapsible collapsible-accordian" data-collapsible="accordion">
+			<li>
+				<div class="collapsible-header">Name: {{info.first_name}} {{info.last_name}} <span>Edit</span></div>
+				<div class="collapsible-body">
+					<form action="{%url 'edit_name'%}" method="post">
+						{% csrf_token %}
+						<label>First <input type="text" name="first" value="{{info.first_name}}"></label>
+						{% if messages %}
+							{% for message in messages %}
+								{% if message.extra_tags == 'first_name'%}
+								<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
+								{% endif %}
+							{% endfor %}
+						{% endif %}
+						<label>Last <input type="text" name="last" value="{{info.last_name}}"></label>
+						{% if messages %}
+							{% for message in messages %}
+								{% if message.extra_tags == 'last_name'%}
+								<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
+								{% endif %}
+							{% endfor %}
+						{% endif %}						
+						<input type="submit" name="submit" value="Change">
+					</form>
+				</div>
+			</li>
+			<li>
+				<div class="collapsible-header">Contact: {{info.email}} <span>Edit</span></div>
+				<div class="collapsible-body">
+					<form action="{%url 'edit_email'%}" method="post">
+						{% csrf_token %}
+						<label>Email <input type="text" name="email" value="{{info.email}}"></label>
+						{% if messages %}
+							{% for message in messages %}
+								{% if message.extra_tags == 'email'%}
+								<h3{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h3>
+								{% endif %}
+							{% endfor %}
+						{% endif %}						
+						<input type="submit" name="submit" value="Change">
+					</form>
+				</div>
+			</li>
+			<li>
+				<div class="collapsible-header">Password <span>Edit</span></div>
+				<div class="collapsible-body">
+					<form action="" method="post">
+						{% csrf_token %}
+						<label>Current Password <input type="text" name="current"></label>
+						<label>New Password <input type="text" name="new"></label>
+						<label>Re-Enter New Password <input type="text" name="confirm"></label>
+						<input type="submit" name="submit" value="Change">
+					</form>
+				</div>
+			</li>
+		</ul>
+		{%endfor%}
+	</div>
+</div>
+</body>
+</html>

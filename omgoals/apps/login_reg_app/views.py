@@ -9,14 +9,19 @@ def index(request):
 def signin(request):
 	if User.userManager.login_val(request.POST['email'], request.POST['password']):
 		request.session['id'] = User.userManager.get_id(request.POST['email'],request.POST['password'])
-		return redirect(reverse('success'))
+<<<<<<< HEAD
+		return redirect(reverse('dashboard'))
+=======
+		return redirect(reverse('dash'))
+>>>>>>> de30a31e3ee184497d02c72ccc5f688303c05277
 	else:
 		messages.error(request, 'Invalid Login', extra_tags='login')
 		return redirect(reverse('index'))
 
-def register(request):
-	return render(request, 'login_reg_app/register.html')
+<<<<<<< HEAD
 
+=======
+>>>>>>> de30a31e3ee184497d02c72ccc5f688303c05277
 def validation(request):
 
 	if request.method =='POST':
@@ -46,12 +51,48 @@ def validation(request):
 			request.session['id'] = User.userManager.get_id(request.POST['email'], request.POST['password'])
 			messages.success(request, 'registered.')
 
-			return redirect(reverse('success'))
+<<<<<<< HEAD
+			return redirect(reverse('dashboard'))
 		else:
-			return redirect(reverse('register'))
+			return redirect(reverse('index'))
 
-def success(request):
-	return render(request, 'login_reg_app/success.html')
+=======
+			return redirect(reverse('dash'))
+		else:	
+			return redirect(reverse('index'))
+>>>>>>> de30a31e3ee184497d02c72ccc5f688303c05277
 
 def dash(request):
 	return render(request, 'login_reg_app/dash.html')
+
+def profile(request):
+	#get profile
+	context={'profile': User.userManager.filter(id=request.session['id'])}
+
+	return render(request, 'login_reg_app/profile.html', context)
+
+def edit_profile(request):
+	context={'profile': User.userManager.filter(id=request.session['id'])}
+	return render(request, 'login_reg_app/editprofile.html', context)
+
+def edit_name(request):
+	valid = True
+	if not User.userManager.name_val(request.POST['first']):
+		messages.error(request, 'Name must be longer than 2 characters, Letters only', extra_tags='first_name')
+		valid = False
+		
+	if not User.userManager.name_val(request.POST['last']):
+		messages.error(request, 'Name must be longer than 2 characters, Letters only', extra_tags='last_name')
+		valid = False
+	
+	if valid:
+		User.userManager.filter(id=request.session['id']).update(first_name=request.POST['first'], last_name=request.POST['last'])
+
+	return redirect(reverse('edit_profile'))
+
+def edit_email(request):
+	if not User.userManager.email_val(request.POST['email']):
+		messages.error(request, 'Invalid Email or Email is the same', extra_tags='email')
+	else:
+		User.userManager.filter(id=request.session['id']).update(email=request.POST['email'])
+	return redirect(reverse('edit_profile'))
