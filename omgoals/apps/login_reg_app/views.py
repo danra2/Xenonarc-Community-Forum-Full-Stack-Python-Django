@@ -14,9 +14,6 @@ def signin(request):
 		messages.error(request, 'Invalid Login', extra_tags='login')
 		return redirect(reverse('index'))
 
-def register(request):
-	return render(request, 'login_reg_app/register.html')
-
 def validation(request):
 
 	if request.method =='POST':
@@ -46,13 +43,12 @@ def validation(request):
 			request.session['id'] = User.userManager.get_id(request.POST['email'], request.POST['password'])
 			messages.success(request, 'registered.')
 
-<<<<<<< HEAD
 			return redirect(reverse('dash'))
 		else:	
-			return redirect(reverse('register'))
+			return redirect(reverse('index'))
 
 def dash(request):
-	return render(request, 'login_reg_app/dashboard.html')
+	return render(request, 'login_reg_app/dash.html')
 
 def profile(request):
 	#get profile
@@ -85,14 +81,3 @@ def edit_email(request):
 	else:
 		User.userManager.filter(id=request.session['id']).update(email=request.POST['email'])
 	return redirect(reverse('edit_profile'))
-=======
-			return redirect(reverse('success'))
-		else:
-			return redirect(reverse('register'))
-
-def success(request):
-	return render(request, 'login_reg_app/success.html')
-
-def dash(request):
-	return render(request, 'login_reg_app/dash.html')
->>>>>>> 297e82e223fbb9a6e23ca76bdb14b079b128b31d
