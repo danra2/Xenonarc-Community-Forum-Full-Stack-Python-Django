@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 25a79e246f2949fc4ba64397d3d824caa78e207d
 from __future__ import unicode_literals
 
 from django.db import migrations, models
