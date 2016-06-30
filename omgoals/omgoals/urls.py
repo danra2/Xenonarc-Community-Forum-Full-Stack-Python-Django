@@ -16,10 +16,18 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from apps.login_reg_app.models import User
+from apps.achieved_app.models import Achieved
+from apps.add_goal.models import Category, Animal, Goal, GoalAnimal, Milestone
 
 class UserAdmin(admin.ModelAdmin):
 	pass
 admin.site.register(User, UserAdmin)
+admin.site.register(Category, UserAdmin)
+admin.site.register(Animal, UserAdmin)
+admin.site.register(Goal, UserAdmin)
+admin.site.register(GoalAnimal, UserAdmin)
+admin.site.register(Milestone, UserAdmin)
+admin.site.register(Achieved, UserAdmin)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
