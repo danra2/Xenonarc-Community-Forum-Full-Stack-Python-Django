@@ -39,19 +39,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #welcome {
-    border: 2px solid black;
     border-radius: 5px;
     padding: 0px !important;
     background-color: white !important;
 }
 
 .div_headers {
-    background-color: #ffc374;
-    border-bottom: 2px solid black;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    background-color: #e3524d !important;
     text-align: center;
+    color: white;
+    height: 45px;
 }
 
-    .div_headers h4, h5 {
+    .div_headers h3, h4, h5 {
         margin: 0px !important;
         padding-top: 5px;
 
@@ -62,7 +64,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #friends_list {
-    border: 2px solid black;
     border-radius: 3px;
     text-align: center;
     margin-bottom: 15px;
@@ -73,11 +74,10 @@ h1, h2, h3, h4, h5, h6 {
         margin-bottom: 0px !important;
     }
 
-    #friends img {
-        height: 75px;
-        width: auto;
-        margin-top: 1em;
-        margin-bottom: 1em;
+    #friends #people {
+        width: 80%;
+        height: auto;
+
     }
 
 #right_dash {
@@ -90,18 +90,20 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     #daily {
-        border: 2px solid black;
+        border-bottom: 5px lightgrey solid;
         border-radius: 5px;
         padding: 0px !important;
-        margin-bottom: 10px;
+        padding-bottom: 10px !important;
+        margin-bottom: 20px;
         height: 47%;
         background-color: white !important;
     }
 
     #goals {
-        border: 2px solid black;
+        border-bottom: 5px lightgrey solid;
         border-radius: 5px;
         padding: 0px !important;
+        padding-bottom: 10px !important;
         height: 47%;
         background-color: white !important;
     }
@@ -121,11 +123,11 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
     text-transform: uppercase;
 }
- 
+
 .btn:focus, .btn:active:focus, .btn.active:focus {
     outline: 0 none;
 }
- 
+
 .btn:hover, .btn:focus, .btn:active, .btn.active, .open > .dropdown-toggle.btn {
     background: #51b8af;
 }
