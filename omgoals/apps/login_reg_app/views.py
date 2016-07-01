@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse
 from .models import User
+from ..add_goal.models import Goal, Milestone, Animal, GoalAnimal
 from django.contrib import messages
-
+import datetime
 def index(request):
 	return render(request, 'login_reg_app/index.html')
 
@@ -55,7 +56,26 @@ def validation(request):
 			return redirect(reverse('index'))
 
 def dash(request):
-	return render(request, 'login_reg_app/dash.html')
+	user = User.userManager.get(id=request.session['id'])
+	today = datetime.datetime.now().date
+	user_goals = Goal.goalManager.filter(user_id=user)
+	goals = []
+	for user_goal in user_goals:
+		goal_id = user_goal.id
+		animal = Goal.goalManager.getAnimal(goal_id)
+		progress = Goal.goalManager.progress(goal_id)
+		name = user_goal.title
+		nextTask = Goal.goalManager.nextMilestone(goal_id)
+		goal_tuple = (animal, progress, name, nextTask)
+		print animal
+		print progress
+		goals.append(goal_tuple)
+	context = {
+		'user' : user,
+		'today' : today,
+		'goals' : goals
+	}
+	return render(request, 'login_reg_app/dash.html', context)
 
 def profile(request):
 	#get profile
