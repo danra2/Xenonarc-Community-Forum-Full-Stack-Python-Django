@@ -4,107 +4,109 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	{% load staticfiles %}
 	<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
-
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
 	{% load staticfiles %}
 	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+
 	{% load staticfiles %}
-	<link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-			<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-			<script type="text/javascript">
+	<link rel="stylesheet" href="{% static 'css/rightanimation.css' %}">
+	{% load staticfiles %}
+	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+	<script type="text/javascript">
+	// imitation of new page loading
+	window.onload = function() {
+	  $body = $('body'),
+	  $('div.container').hide(0).delay(3680).show(0)
+	  loader(5)
 
-			</script>
+	  function loader(delay) {
+	    setTimeout(function(){
+	      $body.addClass('loading');
+	    }, delay);
 
+	    setTimeout(function(){
+	      $body.addClass('loaded');
+	    }, delay + 1200);
+
+	    setTimeout(function(){
+	      $body.removeClass('restart').addClass('new-page');
+	    }, delay + 1550);
+	  }
+	}
+	</script>
+	<style>
+		form-group {
+		    margin-left: 20%;
+		    margin-top: 10%;
+		    border-radius: 4px;
+		}
+		#choco{
+		    margin-top: 4%;
+		    width: 16%;
+		    border-radius: 4px;
+		} 
+		h2	   {
+		    color: white;
+		} 
+		form {
+		    margin-left: 43%;
+		    margin-top: 13%;
+		} 
+		 input {
+		   border-radius: 4px;
+		} 
+	</style>
 </head>
 <body>
-	<!-- NAVBAR -->
-	<nav class="navbar navbar-default">
-	  <div class="container-fluid">
-	    <!-- Brand and toggle get grouped for better mobile display -->
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	    </div>
-
-	    <!-- Collect the nav links, forms, and other content for toggling -->
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav">
-	        <li><a href="/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home <span class="sr-only">(current)</span></a></li>
-	      </ul>
-	      <ul class="nav navbar-nav navbar-right">
-	        <li class="active"><a href="">Sign In</a></li>
-	       	<li><a href="/login/register">Register</a></li>
-
-	      </ul>
-	    </div><!-- /.navbar-collapse -->
-	  </div><!-- /.container-fluid -->
-	</nav>
-
+	<div class="animation">
+		<svg class="loader" viewBox="0 0 100 100" overflow="visible">
+		  <g class="core">
+		    <circle class="path" cx="50" cy="50" r="1" fill="none" />
+		  </g>
+		  <g class="spinner">
+		    <circle class="path" cx="50" cy="50" r="20" fill="none" />
+		  </g>
+		  <g class="layer-1">
+		    <circle class="path" cx="50" cy="50" r="70" fill="none" />
+		  </g>
+		  <g class="layer-2">
+		    <circle class="path" cx="50" cy="50" r="120" fill="none" />
+		  </g>
+		  <g class="layer-3">
+		    <circle class="path" cx="50" cy="50" r="180" fill="none" />
+		  </g>
+		  <g class="layer-4">
+		    <circle class="path" cx="50" cy="50" r="240" fill="none" />
+		  </g>
+		  <g class="layer-5">
+		    <circle class="path" cx="50" cy="50" r="300" fill="none" />
+		  </g>
+		  <g class="layer-6">
+		    <circle class="path" cx="50" cy="50" r="380" fill="none" />
+		  </g>
+		  <g class="layer-7">
+		    <circle class="path" cx="50" cy="50" r="450" fill="none" />
+		  </g>
+		  <g class="layer-8">
+		    <circle class="path" cx="50" cy="50" r="540" fill="none" />
+		  </g>
+		</svg>
+	</div>
 	<!-- SIGN IN -->
-	<div class="container">
+	<div class="container" id="wrap">
 		{% for error in errors %}
 			<p class="bg-danger">{{error}}</p>
 		{% endfor %}
-	<form action="{% url 'login' %}" method="post"> {% csrf_token %}
-	  <div class="form-group">
-	    <label for="email">Email address</label>
-	    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-	  </div>
-	  <div class="form-group">
-	    <label for="password">Password</label>
-	    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-	  </div>
-	  <button type="submit" class="btn w15 dl16">Sign In</button>
-<div class="container">
- <svg class="loader" viewBox="0 0 100 100" overflow="visible">
-	 <g class="core">
-		 <circle class="path" cx="50" cy="50" r="1" fill="none" />
-	 </g>
-	 <g class="spinner">
-		 <circle class="path" cx="50" cy="50" r="20" fill="none" />
-	 </g>
-	 <g class="layer-1">
-		 <circle class="path" cx="50" cy="50" r="70" fill="none" />
-	 </g>
-	 <g class="layer-2">
-		 <circle class="path" cx="50" cy="50" r="120" fill="none" />
-	 </g>
-	 <g class="layer-3">
-		 <circle class="path" cx="50" cy="50" r="180" fill="none" />
-	 </g>
-	 <g class="layer-4">
-		 <circle class="path" cx="50" cy="50" r="240" fill="none" />
-	 </g>
-	 <g class="layer-5">
-		 <circle class="path" cx="50" cy="50" r="300" fill="none" />
-	 </g>
-	 <g class="layer-6">
-		 <circle class="path" cx="50" cy="50" r="380" fill="none" />
-	 </g>
-	 <g class="layer-7">
-		 <circle class="path" cx="50" cy="50" r="450" fill="none" />
-	 </g>
-	 <g class="layer-8">
-		 <circle class="path" cx="50" cy="50" r="540" fill="none" />
-	 </g>
- </svg>
-</div>
-
-
-	</form>
+		<form action="{% url 'login' %}" method="post"> {% csrf_token %}
+		  <div class="form-group">
+		    <label for="email"><h2>Email address:</h2></label>
+		    <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+		  </div>
+		  <div class="form-group">
+		    <label for="password"><h2>Password:</h2></label>
+		    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+		  </div>
+		  <button type="submit" id="choco" class="w15 dl16">Sign In</button>
+		</form>
 	</div>
 
 </body>
