@@ -5,28 +5,33 @@
 	{% load staticfiles %}
     <link rel="stylesheet" href="{% static 'css/dash.css' %}">
     <link rel="shortcut icon" type="image/png" href="{{STATIC_URL}}/favicon"/>
+    <link rel="stylesheet" href="{% static 'css/avgrund.css' %}">
+	<script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+	<script type="text/javascript" src="{% static 'login_reg_app/js/jquery.avgrund.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'login_reg_app/js/dash.js' %}"></script>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 	<div id="wrapper">
-	<div class="container-fluid">
-		<div class="row" id='header'>
-			<img id='logo' class='col-xs-1' src="{% static 'img/omgoalslogo.png' %}" />
-                <div class='col-xs-9'>
-				<div id='toolbar' class='btn-group' role='toolbar'>
-					<button type='button' class='btn btn-secondary active'>Today</a></button>
-					<button type='button' class='btn btn-secondary'><a href="{%url 'add_goal'%}">Add</a></button>
-					<button type='button' class='btn btn-secondary'><a href="{%url 'profile'%}">Profile</a></button>
-					<button type='button' class='btn btn-secondary'><a href="{%url 'journal'%}">Journal</a></button>
-					<button type='button' class='btn btn-secondary'><a href="{%url 'achieved_page'%}">Achieved</a></button>
-					<button id='store' type='button' class='btn btn-secondary'>Store</button>
-					<a href="{%url 'logout'%}"><button id='logout' type='button' class='btn btn-primary'>Log Out</button></a>
+		<div class="container-fluid">
+			<div class="row" id='header'>
+				<img id='logo' class='col-xs-1' src="{% static 'img/omgoalslogo.png' %}" />
+	                <div class='col-xs-9'>
+					<div id='toolbar' class='btn-group' role='toolbar'>
+						<button type='button' class='btn btn-secondary active'>Today</a></button>
+						<button type='button' class='btn btn-secondary'><a href="{%url 'add_goal'%}">Add</a></button>
+						<button type='button' class='btn btn-secondary'><a href="{%url 'profile'%}">Profile</a></button>
+						<button type='button' class='btn btn-secondary'><a href="{%url 'journal'%}">Journal</a></button>
+						<button type='button' class='btn btn-secondary'><a href="{%url 'achieved_page'%}">Achieved</a></button>
+						<button id='store' type='button' class='btn btn-secondary'>Store</button>
+						<a href="{%url 'logout'%}"><button id='logout' type='button' class='btn btn-primary'>Log Out</button></a>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
 		<!-- keep this content div for styling -->
 		<div id="content">
@@ -60,8 +65,8 @@
 							<h4>Daily Goals</h4>
 						</div>
 						<div id='daily_list'>
-							<img src="{% static 'img/owl.png' %}" />
-							<img src="{% static 'img/pony.png' %}" />
+							<img class="animal_img" src="{% static 'img/owl.png' %}" />
+							<img class="animal_img" src="{% static 'img/pony.png' %}" />
 						</div>
 					</div>
 					<div class='col-xs-12' id='goals'>

@@ -31,12 +31,11 @@
                 </div>
             </div>
 
-
-            <div id="content">
-
-                <form class="form-horizontal" action='{%url "insert_goal" %}' method='post'>
-                    {% csrf_token %}
-                    <div class="form-group">
+            <div id="content" class='row'>
+                <div class="col-sm-offset-1 col-sm-6">
+                <!-- Goal form -->
+                    <form class="form-horizontal" action='{%url "insert_goal" %}' method='post'>
+                        {% csrf_token %}
                         <div class="col-sm-offset-2 col-sm-10" id="smart_description">
                             <h2>Is your goal a S.M.A.R.T. goal?</h2>
                             <p><strong>Specific:</strong> the goal clearly states what it will achieve</p>
@@ -45,81 +44,83 @@
                             <p><strong>Relevant:</strong> the goal reflects your values in life</p>
                             <p><strong>Time Specific:</strong> you know when you want to achieve this goal by</p>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="goal_name" class="col-sm-2 control-label">Goal Name</label>
-                        <div class="col-sm-10">
-                            <input class="form-control" type="text" id="goal_bame" placeholder="Ex: Run a marathon" name='title' />
+                        <div class="form-group">
+                            <label for="goal_name" class="col-sm-2 control-label">Goal Name</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" id="goal_bame" placeholder="Ex: Run a marathon" name='title' />
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="description" class="col-sm-2 control-label">Goal Description</label>
-                        <div class="col-sm-10">
-                            <textarea class="form-control" type="textarea" id="description" name='description'></textarea>
+                        <div class="form-group">
+                            <label for="description" class="col-sm-2 control-label">Goal Description</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" type="textarea" id="description" name='description'></textarea>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="due_date" class="col-sm-2 control-label">Due Date</label>
-                        <div class="col-sm-10">
-                            <input class="form-control" type="date" id="due_date" name='due_date'/>
+                        <div class="form-group">
+                            <label for="due_date" class="col-sm-2 control-label">Due Date</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="date" id="due_date" name='due_date'/>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="priority" class="col-sm-2 control-label">Priority</label>
-                        <div class='col-sm-10'>
-                            <select class="form-control" id="priority" name='priority'>
-                                <option>--</option>
-                                <option value="low">Low</option>
-                                <option value="medium">Medium</option>
-                                <option value="high">High</option>
-                                <option value="top">Top Priority</option>
-                            </select>
+                        <div class="form-group">
+                            <label for="priority" class="col-sm-2 control-label">Priority</label>
+                            <div class='col-sm-10'>
+                                <select class="form-control" id="priority" name='priority'>
+                                    <option>--</option>
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>
+                                    <option value="top">Top Priority</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                    <label for="category" class="col-sm-2 control-label">Goal Category</label>
-                        <div class="col-sm-10">
-                            <select class="form-control" id="category" name='category'>
-                                <option>--</option>
-                                <option value="career">Career</option>
-                                <option value="diet">Diet</option>
-                                <option value="education">Education</option>
-                                <option value="finance">Finance</option>
-                                <option value="fitness">Fitness</option>
-                                <option value="hobbies">Hobbies</option>
-                                <option value="lifestype">Lifestyle</option>
-                                <option value="relationships">Relationships</option>
-                                <option value="spiritual">Spiritual</option>
-                                <option value="travel">Travel</option>
-                            </select>
+                        <div class="form-group">
+                            <label for="category" class="col-sm-2 control-label">Goal Category</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="category" name='category'>
+                                    <option>--</option>
+                                    <option value="Career">Career</option>
+                                    <option value="Diet">Diet</option>
+                                    <option value="Education">Education</option>
+                                    <option value="Finance">Finance</option>
+                                    <option value="Fitness">Fitness</option>
+                                    <option value="Hobbies">Hobbies</option>
+                                    <option value="Lifestyle">Lifestyle</option>
+                                    <option value="Relationships">Relationships</option>
+                                    <option value="Spiritual">Spiritual</option>
+                                    <option value="Travel">Travel</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label for="animal_name" class="col-sm-2 control-label">Animal</label>
-                        <div class="col-sm-10">
-                            <input class="form-control" type="text" id="animal_name" name='animal_name' />
+                        <div class="form-group">
+                            <label for="animal_name" class="col-sm-2 control-label">Animal</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="text" id="animal_name" name='animal_name' />
+                            </div>
                         </div>
-                    </div>
 
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <input type='submit' id="create" type='button' class='btn btn-primary' value='Create Goal'>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class='col-sm-5'>
                     <div id="animals" class="form-group">
-                        <img src="{% static 'img/penguin.png' %}" id="penguin" class="col-sm-offset-2 col-sm-10" />
-                        <img src="{% static 'img/owl.png' %}" id="owl" class="col-sm-offset-2 col-sm-10" />
-                        <img src="{% static 'img/pony.png' %}" id="horse" class="col-sm-offset-2 col-sm-10" />
+                        <img src="{% static 'img/penguin.png' %}" id="penguin" class="col-sm-offset-2 col-sm-10 icon" />
+                        <img src="{% static 'img/owl.png' %}" id="owl" class="col-sm-offset-2 col-sm-10 icon" />
+                        <img src="{% static 'img/pony.png' %}" id="horse" class="col-sm-offset-2 col-sm-10 icon" />
                     </div>
-
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <input type='submit' id="create" type='button' class='btn btn-primary' value='Create Goal'>
-                        </div>
-                    </div>
-                </form>
-
+                </div>
                 <div id="footer">
                     <div class='col-xs-3 col-xs-offset-1'id='copyright'>
                         &copy; OH MY GOALS 2016
@@ -129,7 +130,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </body>
