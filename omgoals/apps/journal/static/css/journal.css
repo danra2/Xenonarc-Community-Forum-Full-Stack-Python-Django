@@ -14,7 +14,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #page_title {
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 #header {
@@ -36,12 +36,20 @@ h1, h2, h3, h4, h5, h6 {
 
 #content {
     padding: 30px;
-    padding-bottom: 200px;
+    padding-bottom: 100px;
 }
 
 #journal_entry {
     padding-top: 30px;
-    padding-bottom: 100px;
+    padding-bottom: 70px;
+}
+
+#submit {
+    background: #e3524d;   
+}
+
+#submit:hover {
+    background: #eb837f;
 }
 
 .btn {
