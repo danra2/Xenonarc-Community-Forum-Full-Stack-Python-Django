@@ -1,0 +1,192 @@
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css");
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic);
+
+body, p {
+    background-color: #ecebeb;
+    font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 12pt;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Raleway", "Helvetica Neue", Helvetica, sans-serif;
+    margin-bottom: 5px;
+}
+
+#page_title {
+    margin-top: 20px;
+}
+
+#header {
+    background-image: url("../img/header.jpg");
+    background-repeat: repeat-x;
+    color: white;
+    height: 80px;
+}
+
+#logo {
+    height: 70px !important;
+    width: auto !important;
+}
+
+    #header #toolbar{
+        margin-top: 18px;
+        border-radius:5px;
+    }
+
+#content {
+    padding: 30px;
+    padding-bottom: 100px;
+}
+
+#journal_entry {
+    padding-top: 30px;
+    padding-bottom: 70px;
+}
+
+#submit {
+    background: #e3524d;   
+}
+
+#submit:hover {
+    background: #eb837f;
+}
+
+.btn {
+    padding-right: 10px;
+    background-color: #76C7C0;
+    border: none;
+    color: white;
+    border: 0 none;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+ 
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+ 
+.btn:hover, .btn:focus, .btn:active, .btn.active, .open > .dropdown-toggle.btn {
+    background: #51b8af;
+}
+
+a, a:link, a:visited, a:hover, a:active {
+    color: white;
+    text-decoration: none;
+}
+
+/* Footer CSS below! */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin: 0 0 116px; /* bottom = footer height */
+    /*padding: 25px;*/
+}
+
+#footer {
+    background-image: url("../img/footer.jpg");
+    background-repeat: repeat-x;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 116px;
+    width: 100%;
+    overflow:hidden;
+    /* footer content*/
+    color: white;
+    font-variant: small-caps;
+    padding-top: 1em;
+}
+
+#socialmed {
+    text-align: right;
+    padding-right: 50px;
+}
+
+#copyright {
+    padding-top: 30px;
+}
+/* end of footer CSS */
+
+/* tab & accordion CSS*/
+.ui-widget-header div, .ui-widget-header {
+    background: #ecebeb !important;
+    font-weight: none !important;
+    padding: 0 !important;
+}
+
+.ui-state-default {
+    background: #e3524d !important;
+    padding: 0.5em !important;
+    margin: 5px !important;
+}
+
+
+.ui-state-hover {
+    background: #eb837f !important;
+}
+
+.ui-state-active {
+    background: #FFFFFF !important;
+    border: none;
+}
+
+#tabs {
+    margin-right: 70px;
+}
+
+#tabs, ul {
+    background: #ecebeb !important;
+    border: none !important;
+}
+
+#tabs .ui-state-default a {
+    color: #FFFFFF !important;   
+    font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 10pt;
+}
+
+#tabs .ui-state-active a {
+    color: black !important;   
+    font-family: "Lato", "Helvetica Neue", Helvetica, sans-serif;
+}
+
+#tabs p {
+    background-color: white;
+    padding-top: 3em;
+    padding-bottom: 3em;
+    padding-right: 1.5em;
+    padding-left: 1.5em;
+    margin: 0;
+    font-weight: normal;
+}
+
+#accordion {
+    width: 300px;
+}
+
+#accordion .ui-icon { 
+    display: none; 
+}
+
+#accordion p {
+    padding: 1em;
+    background: white;
+    border-bottom: 0.5pt lightgray solid;
+}
+
+.ui-accordion .ui-accordion-content {
+    padding: 1em !important;
+    border: none !important;
+}
+
+#accordion .ui-state-default {
+    color: #FFFFFF !important;   
+}
+
+#accordion .ui-state-active {
+    color: #000000 !important;   
+}
