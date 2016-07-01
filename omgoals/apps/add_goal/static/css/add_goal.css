@@ -30,6 +30,14 @@ h1, h2, h3, h4, h5, h6 {
     padding: 30px;
 }
 
+#smart_description {
+    margin-bottom: 24px;
+}
+
+#plus {
+    margin-bottom: 10px;
+}
+
 .btn {
     padding-right: 10px;
     background-color: #76C7C0;
@@ -91,5 +99,5 @@ form {
 }
 
 .icon {
-    margin-top: 100px;
+    margin-top: 140px;
 }
