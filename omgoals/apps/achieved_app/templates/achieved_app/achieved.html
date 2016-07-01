@@ -1,48 +1,90 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Home</title>
-	{% load staticfiles %}
+    <title>Achieved</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/add_goal.css' %}">
     <link rel="stylesheet" href="{% static 'css/achieved.css' %}">
     <link rel="shortcut icon" type="image/png" href="{{STATIC_URL}}/favicon"/>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- jQuery import -->
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/add_goals.js' %}"></script>
+
+    <link rel="stylesheet" href="{% static 'css/avgrund.css' %}">
+	<script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+	<script type="text/javascript" src="{% static 'login_reg_app/js/jquery.avgrund.min.js' %}"></script>
+	<script>
+		$(document).ready(function(){
+			$(document).on('click', 'img.animal_img', function(){
+				var name= $(this).attr("value1")
+				var description= $(this).attr("value2")
+				var completion_date= $(this).attr("value3")
+
+				$(this).avgrund({
+					width: 380, // max is 640px
+					height: 280, // max is 350px
+					showClose: false, // switch to 'true' for enabling close button
+					showCloseText: '', // type your text for close button
+					closeByEscape: true, // enables closing popup by 'Esc'..
+					closeByDocument: true, // ..and by clicking document itself
+					holderClass: '', // lets you name custom class for popin holder..
+					overlayClass: '', // ..and overlay block
+					enableStackAnimation: false, // another animation type
+					onBlurContainer: '', // enables blur filter for specified block
+					openOnEvent: true, // set to 'false' to init on load
+					setEvent: 'click', // use your event like 'mouseover', 'touchmove', etc.
+					//onLoad: function (elem) { ... }, // set custom call before popin is inited..
+					//onUnload: function (elem) { ... }, // ..and after it was closed
+					template: "<h1>"+name+"</h3>"+
+							"<h3>"+description+"</h3>"+
+							"<h4>"+completion_date+"</h3>"
+				});
+			})
+		});
+	</script>
 </head>
 <body>
-	<div class="container">
-		<div class="row" id='header'>
-			<div class='col-xs-5'>
-				<h2 id='logo'>Oh My Goals!</h2>
-			</div>
-			<div class='col-xs-4'>
-				<div id='toolbar' class='btn-group' role='toolbar'>
-					<button type='button' class='btn btn-secondary'><a href="{%url 'dash'%}">Today</a></button>
-					<button type='button' class='btn btn-secondary'><a href="{%url 'add_goal'%}">Add</a></button>
-					<button type='button' class='btn btn-secondary'><a href="{%url 'profile'%}">Profile</a></button>
-					<button type='button' class='btn btn-secondary'><a href="{%url 'journal'%}">Journal</a></button>
-					<button type='button' class='btn btn-secondary active'>Achieved</button>
-				</div>
-			</div>
-			<div class='col-xs-1'>
-                <button id='store' type='button' class='btn btn-secondary'>Store</button>
+		<div class="container-fluid">
+            <div class="row" id='header'>
+                <img id='logo' class='col-xs-1' src="{% static 'img/omgoalslogo.png' %}" />
+                <div class='col-xs-9'>
+                    <div id='toolbar' role='toolbar'>
+                        <button type='button' class='btn btn-secondary'><a href="{%url 'dash'%}">Today</a></button>
+    					<button type='button' class='btn btn-secondary active'>Add</button>
+    					<button type='button' class='btn btn-secondary'><a href="{%url 'profile'%}">Profile</a></button>
+    					<button type='button' class='btn btn-secondary'><a href="{%url 'journal'%}">Journal</a></button>
+    					<button type='button' class='btn btn-secondary'><a href="{%url 'achieved_page'%}">Achieved</a></button>
+                        <button id='store' type='button' class='btn btn-secondary'>Store</button>
+                        <a href="{%url 'logout'%}"><button id='logout' type='button' class='btn btn-primary'>Log Out</button></a>
+                    </div>
+                </div>
             </div>
-            <div class='col-xs-1'>
-				<a href="{%url 'logout'%}"><button id='logout' type='button' class='btn btn-primary'>Log Out</button></a>
-			</div>
-		</div>
-		<div class="mid_filter">
-			<a href="">All</a>
-			<a href="">Category</a>
-		</div>
-		{%for task in achieved%}
-		<div class="task  col-md-4">
-			<h4>{{task.goal_name}}</h4>
-			<h4>{{task.description}}</h4>
-			<h4>{{task.completion_date}}</h4>
-			{% load staticfiles %}
-			<img class="animal_img" src="{% static 'img/'|add:task.final_image %}">
 
+            <div class="content">
+            	<h3>ACHIEVED</h3>
+    	        {%if not achieved%}
+    	        	<h4> Blah Blah Work harder</h4>
+    	        {%endif%}
+
+    			{%for task in achieved%}
+    			<div class="task  col-md-4">
+    				<img class="animal_img" src="{% static 'img/'|add:task.final_image %}" value1="{{task.goal_name}}" value2="{{task.description}}" value3="{{task.completion_date}}">
+    			</div>
+    			{%endfor%}
+            </div>
+
+            <div id="footer">
+                <div class='col-xs-3 col-xs-offset-1'id='copyright'>
+                    &copy; OH MY GOALS 2016
+                </div>
+                <div id='socialmed' >
+                    <img src="{% static 'img/socialmediaicons.png' %}" />
+                </div>
+            </div>
 		</div>
-		{%endfor%}
-	</div>
 </body>
 </html>

@@ -34,14 +34,6 @@ h1, h2, h3, h4, h5, h6 {
     padding: 30px;
 }
 
-#smart_description {
-    margin-bottom: 24px;
-}
-
-#plus {
-    margin-bottom: 10px;
-}
-
 .btn {
     padding-right: 10px;
     background-color: #76C7C0;
@@ -65,11 +57,12 @@ a, a:link, a:visited, a:hover, a:active {
     text-decoration: none;
 }
 
-#create {
+#edit_profile {
+    margin-top: 2em;
     background: #e3524d;
 }
 
-#create:hover {
+#edit_profile:hover {
     background: #eb837f;
 }
 
@@ -108,17 +101,3 @@ body {
     padding-top: 30px;
 }
 /* end of footer CSS */
-
-form {
-    margin-right: 5%;
-    margin-left: 5%;
-}
-
-#animals img {
-    height: 450px;
-    width: auto;
-}
-
-.icon {
-    margin-top: 140px;
-}
