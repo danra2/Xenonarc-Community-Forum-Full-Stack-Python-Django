@@ -9,7 +9,7 @@ def index(request):
 	return render(request, 'wall/index.html', context)
 
 def post_message(request):
-	Message.messageManager.create(message=request.POST['message'], title=request.POST['title'], image=request.POST['image'])
+	Message.messageManager.create(message=request.POST['message'], title=request.POST['title'])
 	return redirect(reverse('index'))
 
 def events(request):
