@@ -20,6 +20,10 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
     height: 80px;
 }
+    #logo {
+        height: 70px !important;
+        width: auto !important;
+    }
 
     #header #toolbar{
         margin-top: 18px;
@@ -77,6 +81,15 @@ body {
     color: white;
     font-variant: small-caps;
     padding-top: 1em;
+}
+
+#socialmed {
+    text-align: right;
+    padding-right: 50px;
+}
+
+#copyright {
+    padding-top: 30px;
 }
 /* end of footer CSS */
 
