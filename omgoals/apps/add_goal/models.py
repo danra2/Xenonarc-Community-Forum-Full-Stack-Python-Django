@@ -12,6 +12,11 @@ class GoalManager(models.Manager):
         animal = Animal.objects.get(name=animal_name)
         GoalAnimal.objects.create(goal_id=this_goal, animal_id=animal, current_image=animal.image)
 
+class MilestonelManager(models.Manager):
+    def insert_milestone(self, title, goal_id):
+        goal = Goal.objects.get(id=goal_id)
+        self.create(title=title, goal_id=goal)
+
 # Create your models here.
 class Category(models.Model):
     category = models.CharField(max_length=100)
@@ -51,9 +56,12 @@ class GoalAnimal(models.Model):
 
 class Milestone(models.Model):
     title = models.CharField(max_length=100)
-    completed = models.BooleanField()
-    reoccuring = models.BooleanField()
+    completed = models.BooleanField(default=False)
+    reoccuring = models.BooleanField(default=False)
     goal_id = models.ForeignKey(Goal)
+
+    milestoneManager = MilestonelManager()
+    objects = models.Manager()
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
