@@ -4,21 +4,11 @@ from django.db import models
 
 from ..login_reg.models import User
 
-class SnackManager(models.Manager):
+class snackManager(models.Manager):
 
-     def snack_request(self, id):
-            errors = {}
-
-            if len(snack_request)<1:
-                errors['snack_request'] = "Snack Request is too short"
-
-            if errors:
-                # print errors
-                return (False, errors)
-
-            else:
-                self.create(request_snack=request_snack, user=id)
-                return (True, self.get(user_email=user_email))
+    def snack_request(self,snack_request, id):
+        self.create(snack_request=snack_request, user=id)
+        return (self, True)
 
 # Create your models here.
 class Snack(models.Model):
@@ -26,4 +16,4 @@ class Snack(models.Model):
     user = models.ForeignKey(User)
     created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
-    SnackManager = SnackManager()
+    SnackManager = snackManager()

@@ -18,12 +18,18 @@ from django.contrib import admin
 from apps.login_reg.models import User
 from apps.dashboard.models import Event
 from apps.wall.models import Message
+from apps.snacks.models import Snack
 
 class UserAdmin(admin.ModelAdmin):
 	pass
 admin.site.register(User, UserAdmin)
 admin.site.register(Event, UserAdmin)
 admin.site.register(Message, UserAdmin)
+
+class SnackManager(admin.ModelAdmin):
+    pass
+admin.site.register(Snack, UserAdmin)
+
 
 urlpatterns = [
 	url(r'^', include('apps.landing.urls')),

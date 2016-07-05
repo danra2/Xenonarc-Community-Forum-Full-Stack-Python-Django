@@ -5,6 +5,7 @@ from ..login_reg.models import User
 from .models import Event
 from ..wall.models import Message
 import datetime
+import calendar
 
 
 # Create your views here.
@@ -30,6 +31,13 @@ def logout(request):
 	request.session.clear()
 	return redirect('/')
 
+def add_months(sourcedate,months):
+ 	month = sourcedate.month - 1 + months
+	year = int(sourcedate.year + (month / 12))
+	month = month % 12 + 1
+	day = min(sourcedate.day,calendar.monthrange(year,month)[1])
+	return datetime.date(year,month,day)
+
 def events(request):
 	date = datetime.date.today()
 	currentEvents = []
@@ -39,15 +47,15 @@ def events(request):
 	for event in allEvents:
 		if (event.event_date.month == date.month):
 			currentEvents.append(event)
-		elif (event.event_date.month == (date + datetime.timedelta(1*365/12)).month):
+		elif (event.event_date.month == (add_months(date, 1)).month):
 			nextEvents.append(event)
-		elif (event.event_date.month == (date + datetime.timedelta(2*365/12)).month):
+		elif (event.event_date.month == (add_months(date, 2)).month):
 			nextNextEvents.append(event)
-
+	print (add_months(date, 2)).strftime("%B")
 	context = {
 		'currentMonth' : date.strftime("%B"),
-		'nextMonth' : (date + datetime.timedelta(1*365/12)).strftime("%B"),
-		'nextNextMonth' : (date + datetime.timedelta(2*365/12)).strftime("%B"),
+		'nextMonth' : (add_months(date, 1)).strftime("%B"),
+		'nextNextMonth' : (add_months(date, 2)).strftime("%B"),
 		'currentEvents' : currentEvents,
 		'nextEvents' : nextEvents,
 		'nextNextEvents' : nextNextEvents

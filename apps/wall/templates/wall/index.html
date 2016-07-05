@@ -58,21 +58,35 @@
 
 	<div class="container">
 		<div class="post_event">
-			<h3>Post Event to Events Page</h3>
+			<h1>Post Event to Events Page</h1>
+			<br>
 			<form action="{%url 'post_event'%}" method="post">
 				{% csrf_token %}
-				<label>Details: <textarea rows="4" cols="30" name="detail"></textarea></label>
-				<label>Date of Event: <input name="event_dates" type="date"></label>
+				<h3>Date of Event:</h3>
+				<input name="event_dates" type="date">
+				<br>
+				<br>
+				<h3>Details:</h3>
+				<textarea rows="7" cols="45" name="detail"></textarea>
+				<br>
+				<br>
 				<input type="submit" name="submit" value="Post">
 			</form>
 		</div>
 		<div class="post_message">
-			<h3>Post message to Community Page</h3>
+			<br>
+			<h1>Post message to Community Page</h1>
 			<form action="{%url 'post_message'%}" method="post">
 				{% csrf_token %}
-				<label class="input">Title: <input type="text" name="title"></label>
-				<label class="input">Message: <textarea crows="4" cols="60" name="message"></textarea></label>
+				<br>
+				<h3>Blog Title:</h3>
+				<input type="text" name="title">
+				<br>
+				<h3>Blog Entry:</h3>
+					<textarea rows="7" cols="45" name="detail"></textarea>
 				<!-- <label class="input">Image: <input type="file" name="image" size="40" accept="image/jpeg"></label> -->
+				<br>
+				<br>
 				<input type="submit" name="submit" value="Post">
 			</form>
 		</div>

@@ -25,7 +25,6 @@ class UserManager(models.Manager):
 		except:
 			users = {}
 
-
 		if len(first_name) < 2 or not NAME_REGEX.match(first_name):
 			errors['first_name'] = "name cannot be less than 2 characters & must have letters only"
 		if len(last_name) < 2 or not NAME_REGEX.match(last_name):
